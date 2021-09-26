@@ -10,26 +10,30 @@ const ToDo = () => {
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
-    console.log(item);
+    console.log('jjjjjjjjjy😎',item);
     item.id = uuid();
     item.complete = false;
+    console.log('list🥱',list)
     setList([...list, item]);
-  }
 
+  }
+//del function🩸
   function deleteItem(id) {
     const items = list.filter((item) => item.id !== id);
+    //change the list after delete 
     setList(items);
   }
-
+//toggleComplete  function 
   function toggleComplete(id) {
     const items = list.map((item) => {
       if (item.id == id) {
         console.log(item)
+        //to reverse the value 🔀
         item.complete = !item.complete;
       }
       return item;
     });
-
+//change data inside list 
     setList(items);
   }
 

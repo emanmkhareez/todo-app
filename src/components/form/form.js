@@ -10,7 +10,7 @@ export default function Form({ handleSubmit, handleChange }) {
           <label>To Do Item </label>
           <InputGroup
             onChange={handleChange}
-            name="text"
+            name="enter"
             id="text-input"
             placeholder="Item Details"
           />
