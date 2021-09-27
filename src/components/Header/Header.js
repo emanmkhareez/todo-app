@@ -29,9 +29,9 @@ class Header extends React.Component {
     {/* <img src="" width="180px" height="70px" class="logo"/> */}
 
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">about</a></li>
-        <li><a href="#">connect with us</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/settingsForm">settings</a></li>
+  
     </ul>
 </nav>
 </header>
