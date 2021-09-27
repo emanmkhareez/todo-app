@@ -10,27 +10,28 @@ const settings = useContext(SettingsContext)
   const pagesVisited = pageNumber * listPerPage;
 
   const displayList = props.list
+  //🤗
     .slice(pagesVisited, pagesVisited + listPerPage)
-    .map((ele) => {
+    .map((item) => {
       return (
         
-        <div key={ele.id} style={{width:"650px" ,margin:"15px"} }>
+        <div key={item.id} style={{width:"650px" ,margin:"15px"} }>
            <Card interactive={true} elevation={Elevation.TWO} style={{backgroundColor:"#b7b7b7"} }>
-          <p>{ele.text}</p>
-          <p>
-            <small>Assigned to: {ele.assignee}</small>
-          </p>
-          <p>
-            <small>Difficulty: {ele.difficulty}</small>
-          </p>
+          <h4>this to do : {item.enter}</h4>
+          <h4>
+            Assigned to: {item.assignee}
+          </h4>
+          <h4>
+           Difficulty: {item.difficulty}
+          </h4>
          
-          <Button style={{ backgroundColor:"green" }} onClick={() => props.toggleComplete(ele.id)}>
-          Complete: {ele.complete.toString()}</Button>
+          <Button style={{ backgroundColor:"black",color:'whitesmoke' }} onClick={() => props.toggleComplete(item.id)}>
+          Complete: {item.complete.toString()}</Button>
 <br/>
 <br/>
 
          
-          <Button style={{ backgroundColor:"red" }} onClick={() => props.deleteItem(ele.id)}>
+          <Button style={{ backgroundColor:"red" }} onClick={() => props.deleteItem(item.id)}>
           Delete</Button>
           </Card>
         </div>
@@ -38,6 +39,7 @@ const settings = useContext(SettingsContext)
     });
     const pageCount = Math.ceil(props.list.length / listPerPage);
     const changePage = ({ selected }) => {
+      console.log('gfghghhhhhhhhhhh',pageNumber)
       setPageNumber(selected);
     };
   return (
