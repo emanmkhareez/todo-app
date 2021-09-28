@@ -1,4 +1,4 @@
-import React,{useContext,useState} from "react";
+import React,{useContext,useState,useEffect} from "react";
 import { Button, Card, Elevation } from '@blueprintjs/core';
 import ReactPaginate from "react-paginate";
 import {SettingsContext} from "../../context/contaxt"
@@ -9,7 +9,7 @@ const settings = useContext(SettingsContext)
   const listPerPage = settings.itemsPerPage;
   const pagesVisited = pageNumber * listPerPage;
 
-  const displayList = props.list
+ const displayList = (settings.show == 'true' ? props.list : props.incomplete)
   //🤗
     .slice(pagesVisited, pagesVisited + listPerPage)
     .map((item) => {

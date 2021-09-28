@@ -1,12 +1,22 @@
-import React from 'react';
+import React ,{useState}from 'react';
 
 export const SettingsContext = React.createContext();
 
 export default function Settings(props) {
+    const[itemsPerPage,setitemsPerPage]=useState(3)
+    const[sort,setsort]=useState('Ascending')
+    const[show,setShow]=useState(false)
+
     const state = {
-        itemsPerPage: 3,
-        sort: 'Ascending',
-        show: false,
+        itemsPerPage,
+        sort,
+        show,
+        setitemsPerPage,
+        setsort,
+        setShow
+
+
+
     }
 
     return (
