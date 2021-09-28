@@ -1,55 +1,55 @@
-import React,{useContext,useState,useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Button, Card, Elevation } from '@blueprintjs/core';
 import ReactPaginate from "react-paginate";
-import {SettingsContext} from "../../context/contaxt"
+import { SettingsContext } from "../../context/contaxt"
 // import './list.css'
 function List(props) {
-const settings = useContext(SettingsContext)
+  const settings = useContext(SettingsContext)
   const [pageNumber, setPageNumber] = useState(0);
   const listPerPage = settings.itemsPerPage;
   const pagesVisited = pageNumber * listPerPage;
 
- const displayList = (settings.show == 'true' ? props.list : props.incomplete)
-  //🤗
+  const displayList = (settings.show == 'true' ? props.list : props.incomplete)
+    //🤗
     .slice(pagesVisited, pagesVisited + listPerPage)
     .map((item) => {
       return (
-        
-        <div key={item.id} style={{width:"650px" ,margin:"15px"} }>
-           <Card interactive={true} elevation={Elevation.TWO} style={{backgroundColor:"#b7b7b7"} }>
-          <h4>this to do : {item.enter}</h4>
-          <h4>
-            Assigned to: {item.assignee}
-          </h4>
-          <h4>
-           Difficulty: {item.difficulty}
-          </h4>
-         
-          <Button style={{ backgroundColor:"black",color:'whitesmoke' }} onClick={() => props.toggleComplete(item.id)}>
-          Complete: {item.complete.toString()}</Button>
-<br/>
-<br/>
 
-         
-          <Button style={{ backgroundColor:"red" }} onClick={() => props.deleteItem(item.id)}>
-          Delete</Button>
+        <div key={item.id} style={{ width: "650px", margin: "15px" }}>
+          <Card interactive={true} elevation={Elevation.TWO} style={{ backgroundColor: "#b7b7b7" }}>
+            <h4>this to do : {item.enter}</h4>
+            <h4>
+              Assigned to: {item.assignee}
+            </h4>
+            <h4>
+              Difficulty: {item.difficulty}
+            </h4>
+
+            <Button style={{ backgroundColor: "black", color: 'whitesmoke' }} onClick={() => props.toggleComplete(item.id)}>
+              Complete: {item.complete.toString()}</Button>
+            <br />
+            <br />
+
+
+            <Button style={{ backgroundColor: "red" }} onClick={() => props.deleteItem(item.id)}>
+              Delete</Button>
           </Card>
         </div>
       );
     });
-    const pageCount = Math.ceil(props.list.length / listPerPage);
-    const changePage = ({ selected }) => {
-      console.log('gfghghhhhhhhhhhh',pageNumber)
-      setPageNumber(selected);
-    };
+  const pageCount = Math.ceil(props.list.length / listPerPage);
+  const changePage = ({ selected }) => {
+    console.log('gfghghhhhhhhhhhh', pageNumber)
+    setPageNumber(selected);
+  };
   return (
     <>
 
 
-    
-        {displayList}
-        <ReactPaginate
-        
+
+      {displayList}
+      <ReactPaginate
+
         previousLabel={"Previous"}
         nextLabel={"Next"}
         pageCount={pageCount}
@@ -59,8 +59,8 @@ const settings = useContext(SettingsContext)
         nextLinkClassName={"nextBttn"}
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
-        />
-   
+      />
+
     </>
   );
 }
