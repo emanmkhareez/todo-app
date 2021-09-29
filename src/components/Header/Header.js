@@ -10,6 +10,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
+import Login from '../loginForm';
 
 
 
@@ -31,6 +32,7 @@ class Header extends React.Component {
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/settingsForm">settings</a></li>
+        <button>Login</button>
   
     </ul>
 </nav>
